@@ -3,7 +3,8 @@
   shanghai_gold: "gold.shanghai",
   eur_cny: "fx.eur_cny",
   usd_cny: "fx.usd_cny",
-  btc_cny: "crypto.btc",
+  btc_cny: "crypto.btc_cny",
+  btc_usd: "crypto.btc_usd",
 };
 
 const formatters = {

@@ -180,6 +180,7 @@ def main() -> None:
         "eur_cny": {"timestamp": snapshot_time, "value": eur_cny_quote["value"]},
         "usd_cny": {"timestamp": snapshot_time, "value": usd_cny_quote["value"]},
         "btc_cny": {"timestamp": snapshot_time, "value": btc_quote["cny"]},
+        "btc_usd": {"timestamp": snapshot_time, "value": btc_quote["usd"]},
     }
 
     merged_series = {
@@ -250,8 +251,8 @@ def main() -> None:
             ),
         },
         "crypto": {
-            "btc": build_metric(
-                label="BTC 价格",
+            "btc_cny": build_metric(
+                label="BTC 人民币价格",
                 value=btc_quote["cny"],
                 unit="CNY",
                 category="crypto",
@@ -263,6 +264,20 @@ def main() -> None:
                 series=merged_series["btc_cny"],
                 precision=2,
                 secondary_value=f"≈ {btc_quote['usd']:.2f} USD",
+            ),
+            "btc_usd": build_metric(
+                label="BTC 美元价格",
+                value=btc_quote["usd"],
+                unit="USD",
+                category="crypto",
+                timestamp=snapshot_time,
+                market_time=generated_at.strftime("%Y-%m-%d %H:%M:%S %Z"),
+                source_name="CoinGecko",
+                source_url=COINGECKO_SOURCE_PAGE,
+                source_note="Bitcoin spot price",
+                series=merged_series["btc_usd"],
+                precision=2,
+                secondary_value=f"≈ {btc_quote['cny']:.2f} CNY",
             ),
         },
         "sources": [

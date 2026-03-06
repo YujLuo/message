@@ -6,7 +6,7 @@
     <title>金价、汇率与 BTC 追踪</title>
     <meta
       name="description"
-      content="追踪国际金价、上海金价、欧元兑人民币、美元兑人民币和 BTC 价格的准实时数据。"
+      content="追踪国际金价、上海金价、欧元兑人民币、美元兑人民币、BTC 人民币价格和 BTC 美元价格的准实时数据。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,7 +23,7 @@
           <p class="eyebrow">Near Realtime Market Board</p>
           <h1>金价、汇率与 BTC</h1>
           <p class="hero-text">
-            页面每分钟刷新一次，本地数据由 GitHub Actions 约每 5 分钟更新一次。上海金采用上金所延时行情，国际金价和汇率采用公开实时行情源。
+            页面每分钟刷新一次，本地数据由 GitHub Actions 约每 5 分钟更新一次。上海金采用上金所延时行情，国际金价、汇率和 BTC 采用公开实时行情源。
           </p>
         </div>
         <div class="hero-meta">
@@ -110,7 +110,25 @@
             <div class="card-head">
               <div>
                 <p class="metric-type">Crypto</p>
-                <h2>BTC 价格</h2>
+                <h2>BTC 人民币价格</h2>
+              </div>
+              <span class="source-tag">CoinGecko</span>
+            </div>
+            <p class="metric-value" data-field="value">--</p>
+            <p class="metric-change" data-field="change">--</p>
+            <p class="metric-secondary" data-field="secondary"></p>
+            <div class="sparkline" data-field="sparkline"></div>
+            <div class="card-foot">
+              <p data-field="meta">--</p>
+              <a data-field="source" href="#" target="_blank" rel="noreferrer">来源</a>
+            </div>
+          </article>
+
+          <article class="metric-card" data-series-key="btc_usd">
+            <div class="card-head">
+              <div>
+                <p class="metric-type">Crypto</p>
+                <h2>BTC 美元价格</h2>
               </div>
               <span class="source-tag">CoinGecko</span>
             </div>

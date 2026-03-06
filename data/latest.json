@@ -1,12 +1,17 @@
 {
   "as_of": "2026-03-06",
+<<<<<<< HEAD
   "published_at": "2026-03-06 11:07:47 CET",
+=======
+  "published_at": "2026-03-06 11:13:25 CET",
+>>>>>>> 44f4bd3 (feat: add btc usd card layout)
   "mode": "near_realtime",
   "refresh_interval_seconds": 300,
   "ui_poll_interval_seconds": 60,
   "gold": {
     "international": {
       "label": "国际金价",
+<<<<<<< HEAD
       "value": 5080.0,
       "unit": "USD/oz",
       "category": "gold",
@@ -14,6 +19,15 @@
       "market_time": "2026-03-06 18:07:00",
       "change_abs": -5.58,
       "change_pct": -0.1097,
+=======
+      "value": 5089.18,
+      "unit": "USD/oz",
+      "category": "gold",
+      "timestamp": "2026-03-06T11:13:25+01:00",
+      "market_time": "2026-03-06 18:13:00",
+      "change_abs": 3.6,
+      "change_pct": 0.0708,
+>>>>>>> 44f4bd3 (feat: add btc usd card layout)
       "change_basis": "较上次抓取",
       "source_name": "新浪财经",
       "source_url": "https://finance.sina.com.cn/money/future/hf.html",
@@ -25,8 +39,13 @@
       "value": 1139.9,
       "unit": "CNY/g",
       "category": "gold",
+<<<<<<< HEAD
       "timestamp": "2026-03-06T11:07:47+01:00",
       "market_time": "2026-03-06 11:07:47 CET",
+=======
+      "timestamp": "2026-03-06T11:13:25+01:00",
+      "market_time": "2026-03-06 11:13:25 CET",
+>>>>>>> 44f4bd3 (feat: add btc usd card layout)
       "change_abs": 0.0,
       "change_pct": 0.0,
       "change_basis": "较上次抓取",
@@ -39,6 +58,7 @@
   "fx": {
     "eur_cny": {
       "label": "欧元兑人民币",
+<<<<<<< HEAD
       "value": 7.9964,
       "unit": "CNY",
       "category": "fx",
@@ -46,6 +66,15 @@
       "market_time": "2026-03-06 18:07:41",
       "change_abs": 0.0069,
       "change_pct": 0.0864,
+=======
+      "value": 7.9944,
+      "unit": "CNY",
+      "category": "fx",
+      "timestamp": "2026-03-06T11:13:25+01:00",
+      "market_time": "2026-03-06 18:13:21",
+      "change_abs": 0.0049,
+      "change_pct": 0.0613,
+>>>>>>> 44f4bd3 (feat: add btc usd card layout)
       "change_basis": "较上次抓取",
       "source_name": "新浪财经",
       "source_url": "https://finance.sina.com.cn/money/forex/hq/EURCNY.shtml",
@@ -54,6 +83,7 @@
     },
     "usd_cny": {
       "label": "美元兑人民币",
+<<<<<<< HEAD
       "value": 6.9085,
       "unit": "CNY",
       "category": "fx",
@@ -61,6 +91,15 @@
       "market_time": "2026-03-06 18:07:01",
       "change_abs": -0.0012,
       "change_pct": -0.0174,
+=======
+      "value": 6.9077,
+      "unit": "CNY",
+      "category": "fx",
+      "timestamp": "2026-03-06T11:13:25+01:00",
+      "market_time": "2026-03-06 18:12:02",
+      "change_abs": -0.002,
+      "change_pct": -0.0289,
+>>>>>>> 44f4bd3 (feat: add btc usd card layout)
       "change_basis": "较上次抓取",
       "source_name": "新浪财经",
       "source_url": "https://finance.sina.com.cn/money/forex/hq/USDCNY.shtml",
@@ -69,6 +108,7 @@
     }
   },
   "crypto": {
+<<<<<<< HEAD
     "btc": {
       "label": "BTC 价格",
       "value": 487996.0,
@@ -78,11 +118,41 @@
       "market_time": "2026-03-06 11:07:47 CET",
       "change_abs": 502.0,
       "change_pct": 0.103,
+=======
+    "btc_cny": {
+      "label": "BTC 人民币价格",
+      "value": 487750.0,
+      "unit": "CNY",
+      "category": "crypto",
+      "timestamp": "2026-03-06T11:13:25+01:00",
+      "market_time": "2026-03-06 11:13:25 CET",
+      "change_abs": 256.0,
+      "change_pct": 0.0525,
       "change_basis": "较上次抓取",
       "source_name": "CoinGecko",
       "source_url": "https://www.coingecko.com/en/coins/bitcoin",
       "source_note": "Bitcoin spot price",
+      "secondary_value": "≈ 70640.00 USD"
+    },
+    "btc_usd": {
+      "label": "BTC 美元价格",
+      "value": 70640.0,
+      "unit": "USD",
+      "category": "crypto",
+      "timestamp": "2026-03-06T11:13:25+01:00",
+      "market_time": "2026-03-06 11:13:25 CET",
+      "change_abs": null,
+      "change_pct": null,
+>>>>>>> 44f4bd3 (feat: add btc usd card layout)
+      "change_basis": "较上次抓取",
+      "source_name": "CoinGecko",
+      "source_url": "https://www.coingecko.com/en/coins/bitcoin",
+      "source_note": "Bitcoin spot price",
+<<<<<<< HEAD
       "secondary_value": "≈ 70676.00 USD"
+=======
+      "secondary_value": "≈ 487750.00 CNY"
+>>>>>>> 44f4bd3 (feat: add btc usd card layout)
     }
   },
   "sources": [
