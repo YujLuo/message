@@ -27,9 +27,12 @@ jobs:
           python-version: "3.12"
 
       - name: Refresh market data
+        id: refresh
+        continue-on-error: true
         run: python scripts/fetch_data.py
 
       - name: Commit updated data
+        if: steps.refresh.outcome == 'success'
         run: |
           if [[ -n "$(git status --porcelain data)" ]]; then
             git config user.name "github-actions[bot]"
@@ -38,6 +41,10 @@ jobs:
             git commit -m "chore: refresh market data"
             git push
           fi
+
+      - name: Report refresh fallback
+        if: steps.refresh.outcome != 'success'
+        run: echo "Market refresh failed, deploying site with existing data files."
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
