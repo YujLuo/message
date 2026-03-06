@@ -1,0 +1,78 @@
+{
+  "as_of": "2026-03-06",
+  "published_at": "2026-03-06 10:17:19 CET",
+  "stale": true,
+  "gold": {
+    "international": {
+      "label": "国际金价",
+      "value": 5104.05,
+      "unit": "USD/oz",
+      "category": "gold",
+      "as_of": "2026-03-05",
+      "stale": true,
+      "change_abs": -44.5,
+      "change_pct": -0.8643,
+      "source_name": "LBMA",
+      "source_url": "https://www.lbma.org.uk/prices-and-data/lbma-gold-price",
+      "source_note": "LBMA Gold Price PM"
+    },
+    "shanghai": {
+      "label": "上海金价",
+      "value": 1139.95,
+      "unit": "CNY/g",
+      "category": "gold",
+      "as_of": "2026-03-06",
+      "stale": false,
+      "change_abs": -8.81,
+      "change_pct": -0.7669,
+      "source_name": "SGE",
+      "source_url": "https://www.sge.com.cn/sjzx/jzj",
+      "source_note": "上海金基准价 PM"
+    }
+  },
+  "fx": {
+    "eur_cny": {
+      "label": "欧元兑人民币",
+      "value": 8.0177,
+      "unit": "CNY",
+      "category": "fx",
+      "as_of": "2026-03-05",
+      "stale": true,
+      "change_abs": -0.017,
+      "change_pct": -0.2116,
+      "source_name": "ECB",
+      "source_url": "https://www.ecb.europa.eu/stats/eurofxref/html/index.en.html",
+      "source_note": "ECB 官方参考汇率"
+    },
+    "usd_cny": {
+      "label": "美元兑人民币",
+      "value": 6.9011,
+      "unit": "CNY",
+      "category": "fx",
+      "as_of": "2026-03-05",
+      "stale": true,
+      "change_abs": 0.003771,
+      "change_pct": 0.0547,
+      "source_name": "ECB",
+      "source_url": "https://www.ecb.europa.eu/stats/eurofxref/html/index.en.html",
+      "source_note": "ECB 官方参考汇率"
+    }
+  },
+  "sources": [
+    {
+      "id": "lbma",
+      "label": "LBMA Gold Price",
+      "url": "https://www.lbma.org.uk/prices-and-data/lbma-gold-price"
+    },
+    {
+      "id": "sge",
+      "label": "上海黄金交易所 上海金基准价",
+      "url": "https://www.sge.com.cn/sjzx/jzj"
+    },
+    {
+      "id": "ecb",
+      "label": "ECB 欧元外汇参考汇率",
+      "url": "https://www.ecb.europa.eu/stats/eurofxref/html/index.en.html"
+    }
+  ]
+}

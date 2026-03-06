@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>金价与汇率追踪</title>
+    <meta
+      name="description"
+      content="追踪国际金价、上海金价、欧元兑人民币和美元兑人民币的官方日更数据。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Serif+SC:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Official Daily Benchmarks</p>
+          <h1>金价与汇率追踪</h1>
+          <p class="hero-text">
+            使用 ECB、LBMA、上海黄金交易所公开数据，展示最新基准价、日度变化和最近趋势。
+          </p>
+        </div>
+        <div class="hero-meta">
+          <div class="hero-pill" id="globalStatus">正在加载数据</div>
+          <div class="hero-note" id="publishedAt">--</div>
+        </div>
+      </header>
+
+      <main>
+        <section class="cards" id="cards">
+          <article class="metric-card" data-series-key="international_gold">
+            <div class="card-head">
+              <div>
+                <p class="metric-type">Gold</p>
+                <h2>国际金价</h2>
+              </div>
+              <span class="source-tag">LBMA</span>
+            </div>
+            <p class="metric-value" data-field="value">--</p>
+            <p class="metric-change" data-field="change">--</p>
+            <div class="sparkline" data-field="sparkline"></div>
+            <div class="card-foot">
+              <p data-field="meta">--</p>
+              <a data-field="source" href="#" target="_blank" rel="noreferrer">来源</a>
+            </div>
+          </article>
+
+          <article class="metric-card" data-series-key="shanghai_gold">
+            <div class="card-head">
+              <div>
+                <p class="metric-type">Gold</p>
+                <h2>上海金价</h2>
+              </div>
+              <span class="source-tag">SGE</span>
+            </div>
+            <p class="metric-value" data-field="value">--</p>
+            <p class="metric-change" data-field="change">--</p>
+            <div class="sparkline" data-field="sparkline"></div>
+            <div class="card-foot">
+              <p data-field="meta">--</p>
+              <a data-field="source" href="#" target="_blank" rel="noreferrer">来源</a>
+            </div>
+          </article>
+
+          <article class="metric-card" data-series-key="eur_cny">
+            <div class="card-head">
+              <div>
+                <p class="metric-type">FX</p>
+                <h2>欧元兑人民币</h2>
+              </div>
+              <span class="source-tag">ECB</span>
+            </div>
+            <p class="metric-value" data-field="value">--</p>
+            <p class="metric-change" data-field="change">--</p>
+            <div class="sparkline" data-field="sparkline"></div>
+            <div class="card-foot">
+              <p data-field="meta">--</p>
+              <a data-field="source" href="#" target="_blank" rel="noreferrer">来源</a>
+            </div>
+          </article>
+
+          <article class="metric-card" data-series-key="usd_cny">
+            <div class="card-head">
+              <div>
+                <p class="metric-type">FX</p>
+                <h2>美元兑人民币</h2>
+              </div>
+              <span class="source-tag">ECB</span>
+            </div>
+            <p class="metric-value" data-field="value">--</p>
+            <p class="metric-change" data-field="change">--</p>
+            <div class="sparkline" data-field="sparkline"></div>
+            <div class="card-foot">
+              <p data-field="meta">--</p>
+              <a data-field="source" href="#" target="_blank" rel="noreferrer">来源</a>
+            </div>
+          </article>
+        </section>
+
+        <section class="panel summary-panel">
+          <div>
+            <p class="panel-label">说明</p>
+            <h3>日更基准价，不是连续实时行情</h3>
+          </div>
+          <p id="summaryText">
+            黄金与汇率均按官方发布节奏更新。遇到周末、节假日或源站未更新时，会沿用最近交易日数据并标记。
+          </p>
+        </section>
+
+        <section class="panel source-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-label">Data Sources</p>
+              <h3>官方来源</h3>
+            </div>
+          </div>
+          <ul class="source-list" id="sourceList"></ul>
+        </section>
+      </main>
+    </div>
+
+    <template id="sourceItemTemplate">
+      <li>
+        <span class="source-name"></span>
+        <a class="source-link" target="_blank" rel="noreferrer">打开来源</a>
+      </li>
+    </template>
+
+    <script src="./assets/app.js" type="module"></script>
+  </body>
+</html>
