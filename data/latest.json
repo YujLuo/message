@@ -1,78 +1,110 @@
 {
   "as_of": "2026-03-06",
-  "published_at": "2026-03-06 10:38:02 CET",
-  "stale": true,
+  "published_at": "2026-03-06 10:54:27 CET",
+  "mode": "near_realtime",
+  "refresh_interval_seconds": 300,
+  "ui_poll_interval_seconds": 60,
   "gold": {
     "international": {
       "label": "国际金价",
-      "value": 5104.05,
+      "value": 5089.45,
       "unit": "USD/oz",
       "category": "gold",
-      "as_of": "2026-03-05",
-      "stale": true,
-      "change_abs": -44.5,
-      "change_pct": -0.8643,
-      "source_name": "LBMA",
-      "source_url": "https://www.lbma.org.uk/prices-and-data/lbma-gold-price",
-      "source_note": "LBMA Gold Price PM"
+      "timestamp": "2026-03-06T10:54:27+01:00",
+      "market_time": "2026-03-06 17:54:00",
+      "change_abs": null,
+      "change_pct": null,
+      "change_basis": "较上次抓取",
+      "source_name": "新浪财经",
+      "source_url": "https://finance.sina.com.cn/money/future/hf.html",
+      "source_note": "伦敦金（现货黄金）",
+      "secondary_value": null
     },
     "shanghai": {
       "label": "上海金价",
-      "value": 1139.95,
+      "value": 1139.9,
       "unit": "CNY/g",
       "category": "gold",
-      "as_of": "2026-03-06",
-      "stale": false,
-      "change_abs": -8.81,
-      "change_pct": -0.7669,
-      "source_name": "SGE",
-      "source_url": "https://www.sge.com.cn/sjzx/jzj",
-      "source_note": "上海金基准价 PM"
+      "timestamp": "2026-03-06T10:54:27+01:00",
+      "market_time": "2026-03-06 10:54:27 CET",
+      "change_abs": null,
+      "change_pct": null,
+      "change_basis": "较上次抓取",
+      "source_name": "上海黄金交易所",
+      "source_url": "https://www.sge.com.cn/sjzx/yshqbg",
+      "source_note": "延时行情 Au99.99",
+      "secondary_value": null
     }
   },
   "fx": {
     "eur_cny": {
       "label": "欧元兑人民币",
-      "value": 8.0177,
+      "value": 7.9916,
       "unit": "CNY",
       "category": "fx",
-      "as_of": "2026-03-05",
-      "stale": true,
-      "change_abs": -0.017,
-      "change_pct": -0.2116,
-      "source_name": "ECB",
-      "source_url": "https://www.ecb.europa.eu/stats/eurofxref/html/index.en.html",
-      "source_note": "ECB 官方参考汇率"
+      "timestamp": "2026-03-06T10:54:27+01:00",
+      "market_time": "2026-03-06 17:54:20",
+      "change_abs": null,
+      "change_pct": null,
+      "change_basis": "较上次抓取",
+      "source_name": "新浪财经",
+      "source_url": "https://finance.sina.com.cn/money/forex/hq/EURCNY.shtml",
+      "source_note": "欧元兑人民币即期汇率",
+      "secondary_value": null
     },
     "usd_cny": {
       "label": "美元兑人民币",
-      "value": 6.9011,
+      "value": 6.9092,
       "unit": "CNY",
       "category": "fx",
-      "as_of": "2026-03-05",
-      "stale": true,
-      "change_abs": 0.003771,
-      "change_pct": 0.0547,
-      "source_name": "ECB",
-      "source_url": "https://www.ecb.europa.eu/stats/eurofxref/html/index.en.html",
-      "source_note": "ECB 官方参考汇率"
+      "timestamp": "2026-03-06T10:54:27+01:00",
+      "market_time": "2026-03-06 17:54:01",
+      "change_abs": null,
+      "change_pct": null,
+      "change_basis": "较上次抓取",
+      "source_name": "新浪财经",
+      "source_url": "https://finance.sina.com.cn/money/forex/hq/USDCNY.shtml",
+      "source_note": "美元兑人民币即期汇率",
+      "secondary_value": null
+    }
+  },
+  "crypto": {
+    "btc": {
+      "label": "BTC 价格",
+      "value": 486926.0,
+      "unit": "CNY",
+      "category": "crypto",
+      "timestamp": "2026-03-06T10:54:27+01:00",
+      "market_time": "2026-03-06 10:54:27 CET",
+      "change_abs": null,
+      "change_pct": null,
+      "change_basis": "较上次抓取",
+      "source_name": "CoinGecko",
+      "source_url": "https://www.coingecko.com/en/coins/bitcoin",
+      "source_note": "Bitcoin spot price",
+      "secondary_value": "≈ 70521.00 USD"
     }
   },
   "sources": [
     {
-      "id": "lbma",
-      "label": "LBMA Gold Price",
-      "url": "https://www.lbma.org.uk/prices-and-data/lbma-gold-price"
+      "id": "sina_gold",
+      "label": "新浪财经 伦敦金",
+      "url": "https://finance.sina.com.cn/money/future/hf.html"
     },
     {
       "id": "sge",
-      "label": "上海黄金交易所 上海金基准价",
-      "url": "https://www.sge.com.cn/sjzx/jzj"
+      "label": "上海黄金交易所 延时行情 Au99.99",
+      "url": "https://www.sge.com.cn/sjzx/yshqbg"
     },
     {
-      "id": "ecb",
-      "label": "ECB 欧元外汇参考汇率",
-      "url": "https://www.ecb.europa.eu/stats/eurofxref/html/index.en.html"
+      "id": "sina_fx",
+      "label": "新浪财经 外汇即期汇率",
+      "url": "https://finance.sina.com.cn/money/forex/hq.shtml"
+    },
+    {
+      "id": "coingecko",
+      "label": "CoinGecko Bitcoin Spot",
+      "url": "https://www.coingecko.com/en/coins/bitcoin"
     }
   ]
 }

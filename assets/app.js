@@ -3,6 +3,7 @@
   shanghai_gold: "gold.shanghai",
   eur_cny: "fx.eur_cny",
   usd_cny: "fx.usd_cny",
+  btc_cny: "crypto.btc",
 };
 
 const formatters = {
@@ -14,6 +15,10 @@ const formatters = {
     minimumFractionDigits: 4,
     maximumFractionDigits: 4,
   }),
+  crypto: new Intl.NumberFormat("zh-CN", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }),
 };
 
 function getNestedValue(record, path) {
@@ -21,26 +26,25 @@ function getNestedValue(record, path) {
 }
 
 function formatValue(metric) {
-  const formatter = metric.category === "gold" ? formatters.gold : formatters.fx;
+  const formatter = formatters[metric.category] || formatters.fx;
   return `${formatter.format(metric.value)} ${metric.unit}`;
 }
 
 function formatChange(metric) {
   if (metric.change_abs == null || metric.change_pct == null) {
-    return { text: "较上一交易日无对比数据", state: "flat" };
+    return { text: `${metric.change_basis || "较上次抓取"} 无对比数据`, state: "flat" };
   }
 
   const sign = metric.change_abs > 0 ? "+" : "";
-  const formatter = metric.category === "gold" ? formatters.gold : formatters.fx;
+  const formatter = formatters[metric.category] || formatters.fx;
   return {
-    text: `${sign}${formatter.format(metric.change_abs)} (${sign}${metric.change_pct.toFixed(2)}%)`,
+    text: `${metric.change_basis || "较上次抓取"} ${sign}${formatter.format(metric.change_abs)} (${sign}${metric.change_pct.toFixed(2)}%)`,
     state: metric.change_abs > 0 ? "up" : metric.change_abs < 0 ? "down" : "flat",
   };
 }
 
 function formatMeta(metric) {
-  const stale = metric.stale ? "沿用最近交易日" : "当日数据";
-  return `${metric.as_of} · ${metric.source_note} · ${stale}`;
+  return `${metric.market_time} · ${metric.source_note}`;
 }
 
 function renderSparkline(target, points) {
@@ -99,8 +103,8 @@ function renderSources(sources) {
 function updateHeader(latest) {
   const status = document.getElementById("globalStatus");
   const publishedAt = document.getElementById("publishedAt");
-  status.textContent = latest.stale ? "部分数据沿用最近交易日" : "数据已更新";
-  publishedAt.textContent = `抓取时间：${latest.published_at}`;
+  status.textContent = `准实时模式 · 后端约每 ${Math.round((latest.refresh_interval_seconds || 300) / 60)} 分钟刷新`;
+  publishedAt.textContent = `最新抓取：${latest.published_at} · 前端每 ${Math.round((latest.ui_poll_interval_seconds || 60) / 60) || 1} 分钟检查更新`;
 }
 
 function renderCards(latest, history) {
@@ -119,6 +123,9 @@ function renderCards(latest, history) {
     const changeNode = card.querySelector('[data-field="change"]');
     changeNode.textContent = change.text;
     changeNode.className = `metric-change ${change.state}`;
+
+    const secondaryNode = card.querySelector('[data-field="secondary"]');
+    secondaryNode.textContent = metric.secondary_value || "";
 
     card.querySelector('[data-field="meta"]').textContent = formatMeta(metric);
     const sourceLink = card.querySelector('[data-field="source"]');
@@ -154,3 +161,4 @@ async function boot() {
 }
 
 boot();
+window.setInterval(boot, 60_000);

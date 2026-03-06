@@ -52,7 +52,7 @@ body::before {
 
 .hero {
   display: grid;
-  grid-template-columns: 1.5fr 0.8fr;
+  grid-template-columns: 1.4fr 0.9fr;
   gap: 24px;
   padding: 28px;
   border: 1px solid rgba(255, 255, 255, 0.75);
@@ -86,7 +86,7 @@ body::before {
 }
 
 .hero-text {
-  width: min(60ch, 100%);
+  width: min(66ch, 100%);
   margin: 16px 0 0;
   font-size: 17px;
   line-height: 1.75;
@@ -120,7 +120,7 @@ body::before {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 18px;
   margin-top: 24px;
 }
@@ -146,8 +146,7 @@ body::before {
   content: "";
 }
 
-.metric-card:nth-child(2)::after,
-.metric-card:nth-child(4)::after {
+.metric-card:nth-child(2n)::after {
   background: radial-gradient(circle, rgba(152, 199, 234, 0.22), transparent 70%);
 }
 
@@ -177,8 +176,16 @@ body::before {
 
 .metric-change {
   min-height: 24px;
-  margin: 0 0 14px;
+  margin: 0 0 8px;
   font-size: 15px;
+  font-weight: 700;
+}
+
+.metric-secondary {
+  min-height: 20px;
+  margin: 0 0 12px;
+  color: var(--muted);
+  font-size: 13px;
   font-weight: 700;
 }
 
@@ -253,7 +260,7 @@ body::before {
 
 .source-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
   padding: 0;
   margin: 18px 0 0;
@@ -289,9 +296,7 @@ body::before {
 
 @media (max-width: 880px) {
   .hero,
-  .summary-panel,
-  .cards,
-  .source-list {
+  .summary-panel {
     grid-template-columns: 1fr;
   }
 

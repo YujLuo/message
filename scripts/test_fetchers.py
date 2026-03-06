@@ -1,40 +1,48 @@
 ﻿import json
 import unittest
-from datetime import date
 from pathlib import Path
 
-from scripts.fetch_data import parse_ecb_history, parse_lbma_today, parse_sge_history, parse_sge_home
+from scripts.fetch_data import parse_coingecko, parse_sge_delayed, parse_sina_fx, parse_sina_gold, parse_sina_hq
 
 FIXTURES = Path(__file__).resolve().parent.parent / "tests" / "fixtures"
 
 
 class FetcherParsingTests(unittest.TestCase):
-    def test_parse_ecb_history(self) -> None:
-        xml_text = (FIXTURES / "ecb_hist_90d.xml").read_text(encoding="utf-8")
-        data = parse_ecb_history(xml_text)
-        self.assertEqual(data[-1]["date"], "2026-03-05")
-        self.assertAlmostEqual(data[-1]["eur_cny"], 8.3381)
-        self.assertAlmostEqual(data[-1]["usd_cny"], 7.1768807024)
+    def test_parse_sina_hq(self) -> None:
+        text = (FIXTURES / "sina_hq.txt").read_text(encoding="utf-8")
+        payload = parse_sina_hq(text)
+        self.assertIn("hf_XAU", payload)
+        self.assertIn("fx_susdcny", payload)
+        self.assertIn("fx_seurcny", payload)
 
-    def test_parse_lbma_today_prefers_pm(self) -> None:
-        payload = json.loads((FIXTURES / "lbma_today.json").read_text(encoding="utf-8-sig"))
-        latest, history = parse_lbma_today(payload, today_local=date(2026, 3, 6))
-        self.assertEqual(latest["as_of"], "2026-03-05")
-        self.assertEqual(latest["source_note"], "LBMA Gold Price PM")
-        self.assertGreaterEqual(len(history), 3)
+    def test_parse_sina_gold(self) -> None:
+        text = (FIXTURES / "sina_hq.txt").read_text(encoding="utf-8")
+        payload = parse_sina_hq(text)
+        gold = parse_sina_gold(payload["hf_XAU"])
+        self.assertEqual(gold["label"], "伦敦金（现货黄金）")
+        self.assertAlmostEqual(gold["value"], 5096.18)
+        self.assertEqual(gold["market_time"], "2026-03-06 17:45:00")
 
-    def test_parse_sge_home(self) -> None:
-        html_text = (FIXTURES / "sge_home.html").read_text(encoding="utf-8")
-        payload = parse_sge_home(html_text)
-        self.assertEqual(payload["as_of"], "2026-03-06")
-        self.assertAlmostEqual(payload["am"], 1143.07)
-        self.assertAlmostEqual(payload["pm"], 1139.95)
+    def test_parse_sina_fx(self) -> None:
+        text = (FIXTURES / "sina_hq.txt").read_text(encoding="utf-8")
+        payload = parse_sina_hq(text)
+        usd = parse_sina_fx(payload["fx_susdcny"], label="美元兑人民币")
+        eur = parse_sina_fx(payload["fx_seurcny"], label="欧元兑人民币")
+        self.assertAlmostEqual(usd["value"], 6.906)
+        self.assertAlmostEqual(eur["value"], 7.9937)
 
-    def test_parse_sge_history_uses_pm_when_present(self) -> None:
-        payload = json.loads((FIXTURES / "sge_dayily_jzj.json").read_text(encoding="utf-8-sig"))
-        series = parse_sge_history(payload)
-        self.assertEqual(series[0]["date"], "2026-03-03")
-        self.assertAlmostEqual(series[0]["value"], 1136.48)
+    def test_parse_sge_delayed(self) -> None:
+        html_text = (FIXTURES / "sge_yshqbg.html").read_text(encoding="utf-8")
+        payload = parse_sge_delayed(html_text)
+        self.assertAlmostEqual(payload["value"], 1139.9)
+        self.assertAlmostEqual(payload["high"], 1151.0)
+        self.assertAlmostEqual(payload["low"], 1132.0)
+
+    def test_parse_coingecko(self) -> None:
+        payload = json.loads((FIXTURES / "coingecko_btc.json").read_text(encoding="utf-8-sig"))
+        btc = parse_coingecko(payload)
+        self.assertAlmostEqual(btc["usd"], 70470)
+        self.assertAlmostEqual(btc["cny"], 486576)
 
 
 if __name__ == "__main__":
