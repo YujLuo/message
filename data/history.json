@@ -1,88 +1,40 @@
 {
-<<<<<<< HEAD
-  "generated_at": "2026-03-06 11:07:47 CET",
-=======
-  "generated_at": "2026-03-06 11:13:25 CET",
->>>>>>> 44f4bd3 (feat: add btc usd card layout)
+  "generated_at": "2026-03-06 11:25:07 CET",
   "series": {
     "international_gold": [
       {
-        "timestamp": "2026-03-06T11:02:21+01:00",
-        "value": 5085.58
-      },
-      {
-<<<<<<< HEAD
-        "timestamp": "2026-03-06T11:07:47+01:00",
-        "value": 5080.0
-=======
-        "timestamp": "2026-03-06T11:13:25+01:00",
-        "value": 5089.18
->>>>>>> 44f4bd3 (feat: add btc usd card layout)
+        "timestamp": "2026-03-06T11:25:07+01:00",
+        "value": 5084.98
       }
     ],
     "shanghai_gold": [
       {
-        "timestamp": "2026-03-06T11:02:21+01:00",
-        "value": 1139.9
-      },
-      {
-<<<<<<< HEAD
-        "timestamp": "2026-03-06T11:07:47+01:00",
-=======
-        "timestamp": "2026-03-06T11:13:25+01:00",
->>>>>>> 44f4bd3 (feat: add btc usd card layout)
+        "timestamp": "2026-03-06T11:25:07+01:00",
         "value": 1139.9
       }
     ],
     "eur_cny": [
       {
-        "timestamp": "2026-03-06T11:02:21+01:00",
-        "value": 7.9895
-      },
-      {
-<<<<<<< HEAD
-        "timestamp": "2026-03-06T11:07:47+01:00",
-        "value": 7.9964
-=======
-        "timestamp": "2026-03-06T11:13:25+01:00",
+        "timestamp": "2026-03-06T11:25:07+01:00",
         "value": 7.9944
->>>>>>> 44f4bd3 (feat: add btc usd card layout)
       }
     ],
     "usd_cny": [
       {
-        "timestamp": "2026-03-06T11:02:21+01:00",
-        "value": 6.9097
-      },
-      {
-<<<<<<< HEAD
-        "timestamp": "2026-03-06T11:07:47+01:00",
-        "value": 6.9085
-=======
-        "timestamp": "2026-03-06T11:13:25+01:00",
-        "value": 6.9077
->>>>>>> 44f4bd3 (feat: add btc usd card layout)
+        "timestamp": "2026-03-06T11:25:07+01:00",
+        "value": 6.906
       }
     ],
     "btc_cny": [
       {
-        "timestamp": "2026-03-06T11:02:21+01:00",
-        "value": 487494.0
-      },
-      {
-<<<<<<< HEAD
-        "timestamp": "2026-03-06T11:07:47+01:00",
-        "value": 487996.0
-=======
-        "timestamp": "2026-03-06T11:13:25+01:00",
-        "value": 487750.0
+        "timestamp": "2026-03-06T11:25:07+01:00",
+        "value": 488400.0
       }
     ],
     "btc_usd": [
       {
-        "timestamp": "2026-03-06T11:13:25+01:00",
-        "value": 70640.0
->>>>>>> 44f4bd3 (feat: add btc usd card layout)
+        "timestamp": "2026-03-06T11:25:07+01:00",
+        "value": 70734.0
       }
     ]
   }

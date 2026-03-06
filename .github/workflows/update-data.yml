@@ -46,6 +46,17 @@ jobs:
         if: steps.refresh.outcome != 'success'
         run: echo "Market refresh failed, deploying site with existing data files."
 
+      - name: Validate data files
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          for path in [Path("data/latest.json"), Path("data/history.json")]:
+              with path.open(encoding="utf-8-sig") as handle:
+                  json.load(handle)
+          PY
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
