@@ -21,6 +21,8 @@ SINA_SOURCE_PAGE = "https://finance.sina.com.cn"
 SGE_DELAYED_URL = "https://www.sge.com.cn/sjzx/yshqbg"
 COINGECKO_URL = "https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,cny&include_24hr_change=true"
 COINGECKO_SOURCE_PAGE = "https://www.coingecko.com/en/coins/bitcoin"
+GOLD_API_URL = "https://api.gold-api.com/price/XAU"
+GOLD_API_SOURCE_PAGE = "https://gold-api.com/"
 
 
 def fetch_text(url: str, *, encoding: str = "utf-8") -> str:
