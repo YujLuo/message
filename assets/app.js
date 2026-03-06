@@ -23,6 +23,10 @@ const formatters = {
 };
 
 function getNestedValue(record, path) {
+  if (!path) {
+    return undefined;
+  }
+
   return path.split(".").reduce((value, key) => value?.[key], record);
 }
 
@@ -111,10 +115,16 @@ function updateHeader(latest) {
 function renderCards(latest, history) {
   document.querySelectorAll(".metric-card").forEach((card) => {
     const seriesKey = card.dataset.seriesKey;
-    const metric = getNestedValue(latest, metricMap[seriesKey]);
+    const metricPath = metricMap[seriesKey];
+    if (!metricPath) {
+      return;
+    }
+
+    const metric = getNestedValue(latest, metricPath);
     const series = history.series[seriesKey] || [];
 
     if (!metric) {
+      card.querySelector('[data-field="secondary"]').textContent = "当前无数据";
       return;
     }
 
